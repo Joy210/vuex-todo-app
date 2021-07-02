@@ -1,16 +1,19 @@
 <template>
   <div class="">
     <div class="d-flex justify-content-between align-items-center w-md-50 p-2">
-      <h5 class="text-left pointer w-100 mb-0" @click="todoStatus(todo)">
+      <h5 class="text-left w-100 mb-0">
         <div class="custom-control custom-checkbox">
           <input
             type="checkbox"
             class="custom-control-input"
             :id="`customCheck_${index}`"
             v-model="todo.isCompleted"
+            @click="todoStatus(todo)"
           />
           <label
-            :class="`custom-control-label  ${todo.isCompleted && 'completed'}`"
+            :class="`custom-control-label pointer ${
+              todo.isCompleted && 'completed text-danger'
+            }`"
             :for="`customCheck_${index}`"
             >{{ index }}. {{ todo.name }}</label
           >
